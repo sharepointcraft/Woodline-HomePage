@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.14.0",
+    "sdksVersions": {},
+    "version": "1.23.2",
+    "libraryName": "woodline-home-page",
+    "libraryId": "2b939aeb-8dfb-4458-80e1-64ad3498a049",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "Woodline-HomePage",
+    "solutionShortDescription": "Woodline-HomePage description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

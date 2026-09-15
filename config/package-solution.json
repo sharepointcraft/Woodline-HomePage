@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "woodline-home-page-client-side-solution",
+    "id": "2b939aeb-8dfb-4458-80e1-64ad3498a049",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.23.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Woodline-HomePage description"
+      },
+      "longDescription": {
+        "default": "Woodline-HomePage description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "woodline-home-page Feature",
+        "description": "The feature that activates elements of the woodline-home-page solution.",
+        "id": "1f895c06-35c2-47c9-8595-27f0f57c1f92",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/woodline-home-page.sppkg"
+  }
+}
