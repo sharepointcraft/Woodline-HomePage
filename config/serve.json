@@ -2,5 +2,5 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/spfx-serve.schema.json",
   "port": 4321,
   "https": true,
-  "initialPage": "https://realitytechhub.sharepoint.com/teams/Woodline_POC/_layouts/workbench.aspx"
+  "initialPage": "https://1qwy0b.sharepoint.com/sites/WoodlineTest/SitePages/MainPage.aspx"
 }
