@@ -3,7 +3,8 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   type IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneToggle
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
@@ -14,6 +15,7 @@ import { IHomePageProps } from './components/IHomePageProps';
 
 export interface IHomePageWebPartProps {
   description: string;
+  showVideoLibrary?: boolean;
 }
 
 export default class HomePageWebPart extends BaseClientSideWebPart<IHomePageWebPartProps> {
@@ -22,13 +24,42 @@ export default class HomePageWebPart extends BaseClientSideWebPart<IHomePageWebP
   private _environmentMessage: string = '';
 
   public render(): void {
+    // Expand Workbench and SharePoint canvas to full width
+    this.domElement.style.width = '100%';
+    this.domElement.style.maxWidth = '100%';
+    this.domElement.style.padding = '0';
+    this.domElement.style.margin = '0';
+
+    let parent: HTMLElement | null = this.domElement.parentElement;
+    while (parent && parent !== document.body) {
+      if (
+        parent.classList.contains('CanvasZone') ||
+        parent.classList.contains('CanvasSection') ||
+        parent.classList.contains('ControlZone') ||
+        parent.classList.contains('CanvasComponent') ||
+        parent.getAttribute('data-automation-id') === 'CanvasZone' ||
+        parent.getAttribute('data-automation-id') === 'CanvasSection' ||
+        parent.getAttribute('data-automation-id') === 'CanvasControl' ||
+        parent.id === 'workbenchPageContent'
+      ) {
+        parent.style.maxWidth = '100%';
+        parent.style.width = '100%';
+        parent.style.paddingLeft = '0';
+        parent.style.paddingRight = '0';
+        parent.style.marginLeft = '0';
+        parent.style.marginRight = '0';
+      }
+      parent = parent.parentElement;
+    }
+
     const element: React.ReactElement<IHomePageProps> = React.createElement(
       HomePage,
       {
         description: this.properties.description,
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName,
+        showVideoLibrary: this.properties.showVideoLibrary
       }
     );
 
@@ -109,6 +140,10 @@ export default class HomePageWebPart extends BaseClientSideWebPart<IHomePageWebP
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyPaneToggle('showVideoLibrary', {
+                  label: 'Show Video Library',
+                  checked: false
                 })
               ]
             }

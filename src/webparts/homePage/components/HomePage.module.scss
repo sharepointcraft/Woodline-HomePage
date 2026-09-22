@@ -1,29 +1,1564 @@
+:global {
+
+  #workbenchPageContent,
+  .CanvasZone,
+  [data-automation-id="CanvasZone"],
+  .CanvasSection,
+  [data-automation-id="CanvasSection"],
+  .ControlZone,
+  .CanvasComponent,
+  .SPCanvas {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 .homePage {
-  overflow: hidden;
-  padding: 1em;
-  color: "[theme:bodyText, default: #323130]";
-  color: var(--bodyText);
-}
-
-.welcome {
-  text-align: center;
-}
-
-.welcomeImage {
   width: 100%;
-  max-width: 420px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 }
 
-.links {
-  a {
-    text-decoration: none;
-    color: "[theme:link, default:#03787c]";
-    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
 
-    &:hover {
-      text-decoration: underline;
-      color: "[theme:linkHovered, default: #014446]";
-      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
-    }
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 337px;
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO IMAGE SHADING
+   ========================================================= */
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+
+  /*
+   * Pantone 281C
+   * RGB: 0, 32, 92
+   */
+  background:
+    linear-gradient(90deg,
+      rgba(0, 32, 92, 0.98) 0%,
+      rgba(0, 32, 92, 0.91) 18%,
+      rgba(0, 32, 92, 0.68) 38%,
+      rgba(0, 32, 92, 0.25) 62%,
+      rgba(0, 32, 92, 0.08) 100%);
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  padding:
+    47px 54px 60px 54px;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.eyebrow {
+  margin-bottom: 15px;
+
+  /*
+   * Pantone 615C
+   * RGB: 204, 205, 141
+   */
+  color: rgb(204, 205, 141);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.heroTitle {
+  margin: 0 0 19px 0;
+
+  color: #ffffff;
+
+  /*
+   * Similar serif treatment to the reference design.
+   * Georgia is reliable without requiring a custom font file.
+   */
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 1.08;
+
+  letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.heroDescription {
+  max-width: 930px;
+
+  margin: 0 0 21px 0;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+  .hero {
+    min-height: 360px;
+  }
+
+  .heroOverlay {
+    background:
+      linear-gradient(90deg,
+        rgba(0, 32, 92, 0.96) 0%,
+        rgba(0, 32, 92, 0.82) 55%,
+        rgba(0, 32, 92, 0.50) 100%);
+  }
+
+  .heroContent {
+    padding:
+      38px 25px 45px 25px;
+  }
+
+  .heroTitle {
+    font-size: 38px;
+    line-height: 1.1;
+  }
+
+  .heroDescription {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .searchWrapper {
+    max-width: 100%;
+    height: 51px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+
+  .hero {
+    min-height: 390px;
+  }
+
+  .heroContent {
+    padding:
+      32px 20px 40px 20px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .heroDescription {
+    font-size: 15px;
+  }
+
+  .searchWrapper {
+    height: 50px;
+  }
+
+  .searchInput {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   OFFICE WORLD CLOCK
+   ========================================================= */
+
+.officeClockSection {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  width: 100%;
+
+  /*
+   * Pantone 281C
+   * RGB: 0, 32, 92
+   */
+  background: rgb(0, 32, 92);
+
+  border-top: 1px solid rgba(204, 205, 141, 0.25);
+
+  min-height: 121px;
+}
+
+
+/* =========================================================
+   OFFICE CARD
+   ========================================================= */
+
+.officeCard {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  min-height: 121px;
+
+  padding:
+    29px 30px 20px 54px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+/*
+ * Remove border from last office
+ */
+
+.officeCard:last-child {
+  border-right: none;
+}
+
+
+/* =========================================================
+   CITY
+   ========================================================= */
+
+.officeCity {
+  margin-bottom: 8px;
+
+  color: rgb(204, 205, 141);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TIME
+   ========================================================= */
+
+.officeTime {
+  margin-bottom: 13px;
+
+  color: #ffffff;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 21px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   OFFICE NAME
+   ========================================================= */
+
+.officeName {
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media screen and (max-width: 1024px) {
+
+  .officeCard {
+    padding-left: 32px;
+    padding-right: 20px;
+  }
+
+  .officeTime {
+    font-size: 20px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  .officeClockSection {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .officeCard {
+    min-height: 110px;
+
+    padding:
+      24px 20px 18px 25px;
+  }
+
+  /*
+   * Right border for first column
+   */
+  .officeCard:nth-child(2) {
+    border-right: none;
+  }
+
+  /*
+   * Horizontal divider between rows
+   */
+  .officeCard:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+  .officeClockSection {
+    grid-template-columns: 1fr;
+  }
+
+  .officeCard {
+    min-height: 95px;
+
+    padding:
+      20px 20px 18px 20px;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .officeCard:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .officeCard:last-child {
+    border-bottom: none;
+  }
+
+  .officeTime {
+    font-size: 20px;
+  }
+}
+
+
+/* =========================================================
+   QUICK ACTIONS SECTION
+   ========================================================= */
+
+.quickActionsSection {
+  width: 100%;
+
+  /*
+   * Warm off-white background from the reference design
+   */
+  background: #f7f5ed;
+}
+
+.quickActionsContainer {
+  width: 100%;
+
+  padding:
+    39px 54px 16px 54px;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS HEADER
+   ========================================================= */
+
+.quickActionsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.quickActionsTitle {
+  margin: 0;
+
+  color: rgb(0, 32, 92);
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 27px;
+  font-weight: 400;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
+.quickActionsSubtitle {
+  margin: 0;
+
+  color: #5f6c82;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   CARDS GRID
+   ========================================================= */
+
+.quickActionsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   QUICK ACTION CARD
+   ========================================================= */
+
+.quickActionCard {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 135px;
+
+  padding:
+    22px 20px 18px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid rgb(226, 219, 184);
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.quickActionCard:hover {
+  text-decoration: none;
+
+  transform: translateY(-2px);
+
+  border-color: rgb(204, 205, 141);
+
+  box-shadow:
+    0 5px 14px rgba(0, 32, 92, 0.08);
+}
+
+
+/* =========================================================
+   CARD ICON / BADGE
+   ========================================================= */
+
+.quickActionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  margin-bottom: 14px;
+
+  background: #f4f1e5;
+
+  border-radius: 8px;
+
+  color: rgb(0, 32, 92);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+
+/* Fluent UI icon */
+
+.quickActionFluentIcon {
+  color: rgb(0, 32, 92);
+
+  font-size: 19px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.quickActionTitle {
+  margin-bottom: 7px;
+
+  color: rgb(0, 32, 92);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+   ========================================================= */
+
+.quickActionDescription {
+  color: #64718a;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media screen and (max-width: 1024px) {
+
+  .quickActionsContainer {
+    padding:
+      35px 32px 16px 32px;
+  }
+
+  .quickActionsGrid {
+    gap: 14px;
+  }
+
+  .quickActionCard {
+    padding:
+      19px 17px 17px 17px;
+  }
+
+  .quickActionTitle {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  .quickActionsContainer {
+    padding:
+      32px 25px 14px 25px;
+  }
+
+  .quickActionsHeader {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .quickActionsTitle {
+    font-size: 25px;
+  }
+
+  .quickActionsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+  }
+
+  .quickActionCard {
+    min-height: 130px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+  .quickActionsContainer {
+    padding:
+      28px 20px 12px 20px;
+  }
+
+  .quickActionsHeader {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-bottom: 16px;
+  }
+
+  .quickActionsSubtitle {
+    font-size: 10px;
+  }
+
+  .quickActionsGrid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .quickActionCard {
+    min-height: 120px;
+  }
+}
+
+
+
+/* =========================================================
+   MAIN CONTENT AREA
+   ========================================================= */
+
+.mainContentSection {
+  width: 100%;
+  background: #f7f5ed;
+}
+
+.mainContent {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  width: 100%;
+
+  padding: 4px 54px 35px 54px;
+
+  background: #f7f5ed;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   COLUMNS
+   ========================================================= */
+
+.leftContent,
+.centerContent,
+.rightContent {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.leftContent {
+  grid-column: 1 / 2;
+}
+
+.centerContent {
+  grid-column: 2 / 4;
+}
+
+.rightContent {
+  grid-column: 4 / 5;
+}
+
+
+/* =========================================================
+   CONTENT CARD
+   ========================================================= */
+
+.contentCard {
+  width: 100%;
+
+  padding: 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2dbb8;
+
+  border-radius: 8px;
+
+  box-shadow: 0 2px 7px rgba(0, 32, 92, 0.04);
+}
+
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+
+.sectionTitle {
+  margin: 0 0 8px;
+
+  color: #00205c;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 21px;
+  font-weight: 400;
+
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   PODCAST
+   ========================================================= */
+
+.podcastItem {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  height: 116px;
+
+  margin-bottom: 9px;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #cfca8b;
+}
+
+.podcastItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Left side buttons container */
+.podcastActionPanel {
+  flex: 0 0 40%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px;
+
+  background: #cfca8b;
+
+  box-sizing: border-box;
+}
+
+/* Top button (Company Name: Eli Lilly, Regeneron) */
+.podcastCompanyBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 27px;
+  padding: 9px 6px;
+
+  background: #5f6062;
+  color: #ffffff;
+
+  border-radius: 8px;
+  border: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+
+  //cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  box-sizing: border-box;
+  transition: background 0.15s ease, transform 0.15s ease;
+
+  // &:hover {
+  //   background: #4a4b4d;
+  //   color: #ffffff;
+  //   text-decoration: none;
+  //   transform: translateY(-1px);
+  // }
+}
+
+/* Bottom button ("Listen Here") */
+.podcastListenBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 25px;
+  padding: 9px 6px;
+
+  background: #b8b26a;
+  color: #ffffff;
+
+  border-radius: 8px;
+  border: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  box-sizing: border-box;
+  transition: background 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    background: #a39d56;
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+}
+
+/* Right side image container */
+.podcastImage {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.podcastImage img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+}
+
+
+/* =========================================================
+   UPCOMING EVENTS
+   ========================================================= */
+
+.eventListItem {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px 0;
+
+  border-top: 1px solid #e8e2c9;
+}
+
+
+// .eventListItem:first-of-type {
+//   border-top: none;
+// }
+
+
+.eventListItem strong {
+  color: #00205c;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+
+.eventListItem span {
+  margin-top: 3px;
+
+  color: #71809a;
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   GLOBAL HOLIDAYS
+   ========================================================= */
+
+.holidayItem {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px 0;
+
+  border-top: 1px solid #e8e2c9;
+}
+
+
+// .holidayItem:first-of-type {
+//   border-top: none;
+// }
+
+
+.holidayItem div {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+
+.holidayItem strong {
+  color: #00205c;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.holidayItem span {
+  color: #00205c;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+.holidayItem small {
+  margin-top: 3px;
+
+  color: #71809a;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   FEATURED STORY
+   ========================================================= */
+
+.featuredStory,
+.carousel {
+  position: relative;
+
+  width: 100%;
+  height: 350px;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #00205c;
+}
+
+
+.featuredStory>img,
+.carousel>img,
+.carouselBgImage {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+
+.featuredOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(90deg,
+      rgba(0, 32, 92, 0.90) 0%,
+      rgba(0, 32, 92, 0.62) 45%,
+      rgba(0, 32, 92, 0.20) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+.featuredContent {
+  position: absolute;
+
+  left: 20px;
+  bottom: 20px;
+
+  z-index: 2;
+
+  color: #ffffff;
+}
+
+
+.featuredLabel {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #cccd8d;
+
+  font-size: 6px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+
+.featuredContent h2 {
+  margin: 0 0 7px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 20px;
+  font-weight: 400;
+
+  line-height: 1.2;
+}
+
+
+.featuredContent p {
+  margin: 0;
+
+  font-size: 7px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   CAROUSEL SLIDES & DOTS
+   ========================================================= */
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+  transform: translateY(6px);
+  z-index: 2;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #cccd8d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0 0 7px;
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    max-width: 85%;
+  }
+
+  p {
+    margin: 0;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    max-width: 85%;
+  }
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  &.active {
+    width: 20px;
+    border-radius: 4px;
+    background: #cccd8d;
+  }
+}
+
+
+/* =========================================================
+   NEWS GRID
+   ========================================================= */
+
+.newsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+}
+
+
+.newsCard {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-radius: 8px;
+
+  box-shadow: 0 2px 6px rgba(0, 32, 92, 0.05);
+}
+
+
+.newsCard img {
+  display: block;
+
+  width: 100%;
+  height: 80px;
+
+  object-fit: cover;
+}
+
+
+.newsCardContent {
+  padding: 8px;
+}
+
+
+.newsCardContent h3 {
+  margin: 0 0 4px;
+
+  color: #00205c;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 9px;
+  font-weight: 400;
+}
+
+
+.newsCardContent p {
+  margin: 0;
+
+  color: #71809a;
+
+  font-size: 6px;
+}
+
+
+/* =========================================================
+   MOST READ
+   ========================================================= */
+
+.mostRead {
+  padding: 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2dbb8;
+
+  border-radius: 8px;
+}
+
+
+.mostRead ol,
+.mostReadList {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.mostRead li,
+.mostReadItem {
+  display: flex;
+  align-items: center;
+
+  min-height: 25px;
+  padding: 11px 0;
+  border-top: 1px solid #e8e2c9;
+
+  color: #00205c;
+
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+
+.mostRead li span,
+.mostReadItem span {
+  width: 18px;
+
+  color: #cccd8d;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   WEEKLY QUIZ
+   ========================================================= */
+
+/* =========================================================
+   WEEKLY QUIZ
+   ========================================================= */
+
+.weeklyQuiz {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #00205c;
+
+  box-shadow: 0 2px 8px rgba(0, 32, 92, 0.08);
+}
+
+/* Top Part: Image */
+.quizImage {
+  width: 100%;
+  height: 142px;
+
+  overflow: hidden;
+
+  background: #00205c;
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 30%;
+
+    display: block;
+  }
+}
+
+/* Bottom Part: Blue background with content */
+.quizContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 12px 15px;
+
+  background: #00205c;
+
+  color: #ffffff;
+}
+
+.quizLabel {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #cccd8d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.quizTitle {
+  margin: 0 0 8px 0;
+
+  color: #ffffff;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: 400;
+
+  line-height: 1.15;
+}
+
+.quizDescription {
+  margin: 0 0 8px 0;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+
+  line-height: 1.3;
+  opacity: 0.92;
+}
+
+.quizButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 9px;
+
+  background: #cccd8d;
+  color: #00205c;
+
+  border: none;
+  border-radius: 8px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    background: #bdbe7d;
+    transform: translateY(-1px);
+  }
+}
+
+
+/* =========================================================
+   EVENTS GALLERY
+   ========================================================= */
+
+.eventsGallery {
+  width: 100%;
+}
+
+
+.eventsGalleryHeader h2 {
+  margin: 7px 0 8px;
+
+  color: #00205c;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+.galleryGrid {
+  display: grid;
+
+  grid-template-columns: 1.15fr 1fr 1fr 1fr;
+
+  gap: 8px;
+
+  height: 128px;
+}
+
+
+.galleryText {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 8px;
+}
+
+
+.galleryText p {
+  margin: 0 0 12px;
+
+  color: #4d5870;
+
+  font-size: 8px;
+
+  line-height: 1.4;
+}
+
+
+.galleryText a {
+  color: #cccd8d;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+
+.galleryGrid img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT RESPONSIVE
+   ========================================================= */
+
+@media screen and (max-width: 1024px) {
+  .mainContent {
+    gap: 14px;
+    padding: 4px 32px 35px 32px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 4px 25px 35px 25px;
+  }
+
+  .leftContent,
+  .centerContent,
+  .rightContent {
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 4px 20px 35px 20px;
+  }
+
+  .leftContent,
+  .centerContent,
+  .rightContent {
+    grid-column: 1 / -1;
   }
 }

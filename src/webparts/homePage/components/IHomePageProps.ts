@@ -3,4 +3,5 @@ export interface IHomePageProps {
   isDarkTheme: boolean;
   environmentMessage: string;
   userDisplayName: string;
+  showVideoLibrary?: boolean;
 }
