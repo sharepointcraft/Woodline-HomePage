@@ -13,7 +13,7 @@ export function formatOfficeTime(timeZone: string, date: Date = new Date()): str
       minute: '2-digit',
       hour12: false
     }).format(date);
-  } catch (e) {
+  } catch {
     // Fallback if timezone is invalid or unsupported
     return date.toLocaleTimeString('en-US', {
       hour: '2-digit',

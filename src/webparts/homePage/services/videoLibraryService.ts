@@ -1,4 +1,5 @@
 import { IVideoItem } from '../types';
+import podcast1Img from '../assets/podcast-1.png';
 
 export const DEFAULT_VIDEOS: IVideoItem[] = [
   {
@@ -6,7 +7,7 @@ export const DEFAULT_VIDEOS: IVideoItem[] = [
     title: 'Market Intelligence Briefing: Q3 Analysis',
     duration: '14:20',
     category: 'Market Intelligence',
-    thumbnailUrl: require('../assets/podcast-1.png'),
+    thumbnailUrl: podcast1Img,
     videoUrl: '#',
     speaker: 'Dave Ricks'
   },
@@ -15,7 +16,7 @@ export const DEFAULT_VIDEOS: IVideoItem[] = [
     title: 'Woodline Culture & Values: Leadership Q&A',
     duration: '22:45',
     category: 'Leadership',
-    thumbnailUrl: require('../assets/podcast-1.png'),
+    thumbnailUrl: podcast1Img,
     videoUrl: '#',
     speaker: 'Executive Team'
   },
@@ -24,7 +25,7 @@ export const DEFAULT_VIDEOS: IVideoItem[] = [
     title: 'Compliance & Governance Workshop 2026',
     duration: '09:15',
     category: 'Compliance',
-    thumbnailUrl: require('../assets/podcast-1.png'),
+    thumbnailUrl: podcast1Img,
     videoUrl: '#',
     speaker: 'Legal & Compliance'
   }

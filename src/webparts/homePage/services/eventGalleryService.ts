@@ -1,4 +1,5 @@
 import { IEventGalleryData } from '../types';
+import podcast1Img from '../assets/podcast-1.png';
 
 export const DEFAULT_EVENT_GALLERY: IEventGalleryData = {
   title: 'Events Gallery',
@@ -7,15 +8,15 @@ export const DEFAULT_EVENT_GALLERY: IEventGalleryData = {
   viewDetailsText: 'VIEW DETAILS →',
   images: [
     {
-      imageUrl: require('../assets/podcast-1.png'),
+      imageUrl: podcast1Img,
       altText: 'Woodline event'
     },
     {
-      imageUrl: require('../assets/podcast-1.png'),
+      imageUrl: podcast1Img,
       altText: 'Woodline event'
     },
     {
-      imageUrl: require('../assets/podcast-1.png'),
+      imageUrl: podcast1Img,
       altText: 'Woodline event'
     }
   ]

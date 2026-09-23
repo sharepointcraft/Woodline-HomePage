@@ -1,23 +1,24 @@
 import { INewsCardItem } from '../types';
+import podcast1Img from '../assets/podcast-1.png';
 
 export const DEFAULT_NEWS_ITEMS: INewsCardItem[] = [
   {
     id: '1',
     title: 'Compliance reminder',
     description: 'Required actions and guidance.',
-    imageUrl: require('../assets/podcast-1.png')
+    imageUrl: podcast1Img
   },
   {
     id: '2',
     title: 'Learning spotlight',
     description: 'Upcoming learning resources.',
-    imageUrl: require('../assets/podcast-1.png')
+    imageUrl: podcast1Img
   },
   {
     id: '3',
     title: 'Office update',
     description: 'Visitor and office information.',
-    imageUrl: require('../assets/podcast-1.png')
+    imageUrl: podcast1Img
   }
 ];
 
