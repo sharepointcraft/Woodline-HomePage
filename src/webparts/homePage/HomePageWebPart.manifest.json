@@ -15,13 +15,13 @@
   "supportsFullBleed": true,
 
   "preconfiguredEntries": [{
-    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", 
+    "groupId": "5c03119d-3074-4a76-9bff-8a7f4cacee25",
     "group": { "default": "Advanced" },
-    "title": { "default": "HomePage" },
-    "description": { "default": "HomePage description" },
-    "officeFabricIconFontName": "Page",
+    "title": { "default": "Woodline Home Page" },
+    "description": { "default": "Woodline Home Page" },
+    "officeFabricIconFontName": "Home",
     "properties": {
-      "description": "HomePage"
+      "description": "Woodline Home Page"
     }
   }]
 }
